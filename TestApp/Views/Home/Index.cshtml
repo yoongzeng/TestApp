@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Test.Models.Employee>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<p>Welcome to Employees Management System Version 0000000</p>
+<input type="button" value="Add new Employee "
+       onclick="location.href='@Url.Action("Create","Home")'" />
+<br />
+<br />
+<table border="1" cellpadding="10">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Email</td>
+            <td>@item.Department</td>
+            <td>
+
+                <input type="button" value="Edit"
+                       onclick="location.href='@Url.Action("Update"
+                     ,"Home",  new {id = item.Id})'" />
+            </td>
+            <td>
+                <input type="button" value="Delete"
+                       onclick="location.href='@Url.Action("Delete"
+                    ,"Home",new { id= item.Id})'" />
+            </td>
+
+        </tr>
+    }
+</table>
